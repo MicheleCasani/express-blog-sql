@@ -14,8 +14,8 @@ router.get('/', postsController.index);
 //show 
 router.get('/:id', postsController.show);
 
-// //  destroy 
-// router.delete('/:id', postsController.destroy);
+//  destroy 
+router.delete('/:id', postsController.destroy);
 
 // esportazione router
 module.exports = router;

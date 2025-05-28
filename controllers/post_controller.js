@@ -51,7 +51,23 @@ const show = (req, res) => {
 };
 
 
+// destroy
+const destroy = (req, res) => {
+    // recupero id dall'URL
+    const id = parseInt(req.params.id);
+
+    // salvo in una variabile la query da utilizzare
+    const sql = 'DELETE FROM posts WHERE id = ?';
+
+    // eseguo la query per eliminare il post
+    connection.query(sql, [id], (err) => {
+        if (err) return res.status(500).json({ error: 'Eliminazione del post non avvenuta' });
+        res.sendStatus(204);
+    })
+};
+
 module.exports = {
     index,
     show,
+    destroy
 }
